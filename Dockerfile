@@ -70,7 +70,7 @@ RUN apt-get update && \
         tzdata \
         libreadline8 \
         tini && \
-    ln -s /opt/mastodon /mastodon \
+    ln -s /opt/mastodon /mastodon && \
     pip3 install requests
 
 # Note: no, cleaning here since Debian does this automatically
