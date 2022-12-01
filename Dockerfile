@@ -30,7 +30,7 @@ RUN apt update && \
         libyaml-0-2 \
         ca-certificates \
         libreadline8 \
-        python3| python3-dev python3-pip \
+        python3 python3-dev python3-pip \
         shared-mime-info && \
     bundle config set --local deployment 'true' && \
     bundle config set --local without 'development test' && \
