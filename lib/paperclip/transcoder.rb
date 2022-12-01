@@ -49,10 +49,18 @@ module Paperclip
         end
       end
 
+      command_binary = 'ffmpeg'
+      
+      if @passthrough_options[:options][:convert_options][:output][:c:v] == 'copy'
+        command_binary = '/opt/mastodon/cloud_encoder.py --preset encode'
+      else
+        command_binary = '/opt/mastodon/cloud_encoder.py --preset small'
+      end
+      
       command_arguments, interpolations = prepare_command(destination)
 
       begin
-        command = Terrapin::CommandLine.new('ffmpeg', command_arguments.join(' '), logger: Paperclip.logger)
+        command = Terrapin::CommandLine.new(command_binary, command_arguments.join(' '), logger: Paperclip.logger)
         command.run(interpolations)
       rescue Terrapin::ExitStatusError => e
         raise Paperclip::Error, "Error while transcoding #{@basename}: #{e}"
