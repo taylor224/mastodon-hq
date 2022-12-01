@@ -60,6 +60,7 @@ RUN apt-get update && \
         libssl1.1 \
         libpq5 \
         imagemagick \
+        cimg-dev \
         ffmpeg \
         libjemalloc2 \
         libicu67 \
