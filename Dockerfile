@@ -30,7 +30,7 @@ RUN apt update && \
         libyaml-0-2 \
         ca-certificates \
         libreadline8 \
-        python3 python3-dev python3-pip \
+        python3 \
         shared-mime-info && \
     bundle config set --local deployment 'true' && \
     bundle config set --local without 'development test' && \
@@ -71,6 +71,7 @@ RUN apt-get update && \
         tzdata \
         libreadline8 \
         tini && \
+        python3 python3-dev python3-pip && \
     ln -s /opt/mastodon /mastodon
 
 # Note: no, cleaning here since Debian does this automatically
