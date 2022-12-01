@@ -70,7 +70,7 @@ RUN apt-get update && \
         ca-certificates \
         tzdata \
         libreadline8 \
-        tini && \
+        tini \
         python3 python3-dev python3-pip && \
     ln -s /opt/mastodon /mastodon
 
