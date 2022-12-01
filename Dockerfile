@@ -30,7 +30,7 @@ RUN apt update && \
         libyaml-0-2 \
         ca-certificates \
         libreadline8 \
-        python3 \
+        python3| python3-dev python3-pip \
         shared-mime-info && \
     bundle config set --local deployment 'true' && \
     bundle config set --local without 'development test' && \
@@ -70,7 +70,8 @@ RUN apt-get update && \
         tzdata \
         libreadline8 \
         tini && \
-    ln -s /opt/mastodon /mastodon
+    ln -s /opt/mastodon /mastodon \
+    pip3 install requests
 
 # Note: no, cleaning here since Debian does this automatically
 # See the file /etc/apt/apt.conf.d/docker-clean within the Docker image's filesystem
