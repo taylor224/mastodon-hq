@@ -51,7 +51,7 @@ module Paperclip
 
       command_binary = 'ffmpeg'
       
-      if @passthrough_options[:options][:convert_options][:output][:c:v] == 'copy'
+      if @passthrough_options[:options][:convert_options][:output]["c:v"] == 'copy'
         command_binary = '/opt/mastodon/cloud_encoder.py --preset encode'
       else
         command_binary = '/opt/mastodon/cloud_encoder.py --preset small'
