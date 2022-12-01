@@ -36,7 +36,8 @@ RUN apt update && \
     bundle config set --local without 'development test' && \
     bundle config set silence_root_warning true && \
     bundle install -j"$(nproc)" && \
-    yarn install --pure-lockfile
+    yarn install --pure-lockfile && \
+    pip3 install requests
 
 FROM node:${NODE_VERSION}
 
@@ -70,8 +71,7 @@ RUN apt-get update && \
         tzdata \
         libreadline8 \
         tini && \
-    ln -s /opt/mastodon /mastodon && \
-    pip install requests
+    ln -s /opt/mastodon /mastodon
 
 # Note: no, cleaning here since Debian does this automatically
 # See the file /etc/apt/apt.conf.d/docker-clean within the Docker image's filesystem
