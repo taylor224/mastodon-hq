@@ -71,7 +71,7 @@ RUN apt-get update && \
         libreadline8 \
         tini && \
     ln -s /opt/mastodon /mastodon && \
-    pip3 install requests
+    pip install requests
 
 # Note: no, cleaning here since Debian does this automatically
 # See the file /etc/apt/apt.conf.d/docker-clean within the Docker image's filesystem
